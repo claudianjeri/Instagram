@@ -102,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_ACTIVATION_DAYS = 3 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
