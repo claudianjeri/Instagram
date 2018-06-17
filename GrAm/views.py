@@ -20,3 +20,7 @@ def login(request):
 
     return render(request, 'registration/login.html')
 
+def profile(request):
+
+    return render(request, 'profile.html')
+

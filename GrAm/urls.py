@@ -7,8 +7,10 @@ urlpatterns=[
     url('^$',views.start,name = 'start'),
     url('^home/',views.home,name = 'home'),
     url('^signin/',views.signin,name = 'signin'),
-    url('^login/',views.login,name = 'login')
+    url('^login/',views.login,name = 'login'),
+    url('^/profile/',views.profile, name='profile'),
 ]
+
 
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
