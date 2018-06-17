@@ -8,20 +8,31 @@
 </head>
 
 <body>
-    
+
     {% for prf in profile %}
-    <img src="{{prf.profilePic.url}}" class="rounded-circle img-thumbnail">
-    <h5>Name</h5>
-    <p>
-        <i class="fa fa-map-marker" aria-hidden="true"></i> New Jersey, USA.</p>
+    <div class="row">
+        <div class="col-sm-3" style="width:20%; height:5%;">
+            <img src="{{prf.profilePic.url}}" class="rounded-circle img-thumbnail">
+        </div>
+        <h5>{{prf.user.username}} Username:</h5>
+        <hr>
+        <div class="block">
+            <span>{{prf.bio}}</span>
+        </div>
 
-    <hr>
-    <a href="#" class="btn btn-success btn-sm">Follow</a>
-    <a href="#" class="btn btn-info btn-sm">Upload Image</a>
+        <hr>
 
-    <hr>
-    <span>{{prf.bio}}</span>
+        <!-- <a href="#" class="btn btn-success btn-sm">Follow</a> -->
+        <div class="col-sm-3">
+            <a href="{% url 'upload'%}" class="btn btn-info btn-sm">Upload Image</a>
+        </div>
+
+
+        <hr>
+
+    </div>
     {% endfor %}
+    </div>
 </body>
 <style>
     body {

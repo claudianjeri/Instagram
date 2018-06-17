@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Image, Profile
-
+from .models import Image, Profile, Comment
+from .forms import EditProfileForm
 # Create your views here.
 def start(request):
 
@@ -24,4 +24,9 @@ def login(request):
 def profile(request):
     profile = Profile.get_profile()
     return render(request, 'profile/profile.html', {"profile":profile})
+
+def update(request):
+
+    update = Profile.get_profile()
+    return render(request,'profile/update.html',{"update":update})
 
