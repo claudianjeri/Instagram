@@ -23,5 +23,5 @@ def login(request):
 
 def profile(request):
     profile = Profile.objects.all()
-    return render(request, 'profile.html', {"profile":profile})
+    return render(request, 'profile/profile.html', {"profile":profile})
 
