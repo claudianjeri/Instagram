@@ -7,7 +7,7 @@ def start(request):
 
    return render(request, 'index.html')
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def home(request):
 
     return render(request, 'base.html')

@@ -1,4 +1,13 @@
- {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IG</title>
+</head>
+<body>
+    
 
 <div class="wrapper">
     <div class="split right">
@@ -7,10 +16,12 @@
     <div class="split left">
         <a href="{% url 'signin' %}">Sign In</a>
         <a href="{% url 'login' %}">Log In</a>
+        <a href="{% url 'home' %}">Home</a>
     </div>
 
 </div>
 
+</body>
 
 <style>
     .wrapper {
@@ -32,5 +43,5 @@
         margin-right: 30px;
     }
 </style>
-
-{% endblock %}
+</html>
+<!-- {% endblock %} -->

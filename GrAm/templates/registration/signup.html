@@ -7,7 +7,7 @@
         {% if form.errors %}
         <p> Some Information Might be Incorrect </p>
         {% endif %}
-        <form class="form-signin"   action="/accounts/register" method="post">
+        <form class="form-signin"   action="/accounts/register/" method="post">
             {% csrf_token %}
             <span id="reauth-email" class="reauth-email"></span>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
