@@ -10,7 +10,7 @@ def start(request):
 
 # @login_required(login_url='/accounts/login/')
 def home(request):
-    image = Image.objects.all()
+    image = Image.get_images()
     return render(request, 'base.html', {"images":image})
 
 def signin(request):
@@ -22,6 +22,6 @@ def login(request):
     return render(request, 'registration/login.html')
 
 def profile(request):
-    profile = Profile.objects.all()
+    profile = Profile.get_profile()
     return render(request, 'profile/profile.html', {"profile":profile})
 
