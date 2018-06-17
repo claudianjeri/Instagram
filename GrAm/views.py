@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
+from .models import Image, Profile
 
 # Create your views here.
 def start(request):
@@ -9,11 +10,11 @@ def start(request):
 
 # @login_required(login_url='/accounts/login/')
 def home(request):
-
-    return render(request, 'base.html')
+    image = Image.objects.all()
+    return render(request, 'base.html', {"images":image})
 
 def signin(request):
-
+    
     return render(request, 'registration/signup.html')
 
 def login(request):
@@ -21,6 +22,6 @@ def login(request):
     return render(request, 'registration/login.html')
 
 def profile(request):
-
-    return render(request, 'profile.html')
+    profile = Profile.objects.all()
+    return render(request, 'profile.html', {"profile":profile})
 

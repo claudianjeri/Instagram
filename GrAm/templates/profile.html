@@ -8,8 +8,9 @@
 </head>
 
 <body>
-
-    <img src="/demo/man01.png" class="rounded-circle img-thumbnail">
+    
+    {% for prf in profile %}
+    <img src="{{prf.profilePic}}" class="rounded-circle img-thumbnail">
     <h5>Name</h5>
     <p>
         <i class="fa fa-map-marker" aria-hidden="true"></i> New Jersey, USA.</p>
@@ -19,14 +20,14 @@
     <a href="#" class="btn btn-info btn-sm">Upload Image</a>
 
     <hr>
-    <span>Lorem ips consectetur adipisium ,eiusmod tempor incididuin reprehendeanim.</span>
-
+    <span>{{prf.bio}}</span>
+    {% endfor %}
 </body>
 <style>
     body {
         background: #EFF7FE;
         padding-top: 15px;
-}
+    }
 </style>
 
 </html>
