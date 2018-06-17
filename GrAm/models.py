@@ -1,11 +1,11 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
     profilePic = models.ImageField(upload_to='profile/',null=True,blank=True)
     bio = models.CharField(max_length=60,blank=True)
-    # user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.bio
@@ -37,7 +37,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)
     caption = models.CharField(max_length = 60)
     upload_date = models.DateTimeField(auto_now_add=True)
-    # user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     likes = models.PositiveIntegerField(default=0)
 
@@ -70,7 +70,7 @@ class Image(models.Model):
 class Comment(models.Model):
     comments = models.CharField(max_length=60,blank=True,null=True)
     comment_date = models.DateTimeField(auto_now_add=True)
-    # user = models.ForeignKey(User)
+    user = models.ForeignKey(User)
     image = models.ForeignKey(Image,on_delete=models.CASCADE)
 
     def __str__(self):
