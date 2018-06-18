@@ -15,12 +15,14 @@ As a user you can:
 
 ## Technologies used
 
-This is a flask application:
-* HTML
-* CSS
-* Python
-
-Hosted on HEROKU
+This is a django application:
+> * HTML
+> * CSS
+> * Python
+> * Django
+> * Postgresql
+> * Bootstrap 4
+> * Hosted on HEROKU
 
 
 ## Known Bugs.
