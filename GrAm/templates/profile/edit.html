@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{{block.super}}
+<div class="container">
+    <div class="row mt-5"></div>
+    <div class="row mt-5"></div>
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="card card-default mt-5">
+        <div class="card-header">
+            <h2>Edit Profile</h2>
+        </div>
+        <div class="card-body">
+                <form action="{%url 'settings' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-info btn-md" value="Post">
+                </form>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+</div>
+{% endblock %} 

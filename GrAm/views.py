@@ -23,10 +23,37 @@ def login(request):
 
 def profile(request):
     profile = Profile.get_profile()
-    return render(request, 'profile/profile.html', {"profile":profile})
+    image = Image.get_images()
+    user = get_object_or_404(User, pk=pk)
+    return render(request, 'profile/profile.html', {"profile":profile, "images":image, "user":user})
 
 def update(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            update = form.save(commit=False)
+            update.user = current_user
+            update.save()
+            return redirect('profile')
+    else:
+        form = EditProfileForm()
+    return render(request,'profile/edit.html',{"form":form})
 
-    update = Profile.get_profile()
-    return render(request,'profile/update.html',{"update":update})
-
+def upload(request):
+    current_user = request.user
+    profiles = Profile.get_profile()
+    for profile in profiles:
+        if profile.user.id == current_user.id:
+            if request.method == 'POST':
+                form = UploadForm(request.POST,request.FILES)
+                if form.is_valid():
+                    upload = form.save(commit=False)
+                    upload.user = current_user
+                    upload.profile = profile
+                    upload.save()
+                    return redirect('home')
+            else:
+                form = UploadForm()
+            return render(request,'upload.html',{"user":current_user,
+                                                    "form":form})
