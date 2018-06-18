@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Image, Profile, Comment
-from .forms import EditProfileForm
+from .forms import EditProfileForm, UploadForm
 # Create your views here.
 def start(request):
 
