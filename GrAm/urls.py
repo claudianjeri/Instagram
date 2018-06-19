@@ -10,7 +10,7 @@ urlpatterns=[
     url('^login/',views.login,name = 'login'),
     url('^/profile/',views.profile, name='profile'),
     url(r'^update/',views.update,name='update'),
-    url(r'^upload_image/',views.upload,name='upload'),
+    url(r'^upload/',views.upload,name='upload'),
 ]
 
 

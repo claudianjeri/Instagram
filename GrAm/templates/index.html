@@ -1,49 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IG</title>
 </head>
-<body>
-    
 
-<div class="wrapper">
-    <div class="split right">
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpekdVQiwy_jPy6yuZDvt1myUlrV8qt8rMuvp0xqicPQH3_LHT'>
-    </div>
-    <div class="split left">
-        <a href="{% url 'signin' %}">Sign In</a>
-        <a href="{% url 'login' %}">Log In</a>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'profile' %}">View Profile</a>
-        <a href="{% url 'upload'%}">Upload an Image</a>
-        <a href="{% url 'edit'% }">Edit Profile</a>
-    </div>
-    {% include 'navbar.html'%}
-</div>
+<body>
+
+
+    <div class="wrapper">
+        <!-- {% include 'navbar.html'%} -->
+        <div class="split left">
+            <!-- <a href="{% url 'signin' %}">Sign In</a>
+            <a href="{% url 'login' %}">Log In</a>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'profile' %}">View Profile</a>
+            <a href="{% url 'upload'%}">Upload an Image</a>
+            <a href="{% url 'edit'% }">Edit Profile</a> -->
+        </div>
+        <div class="container" style="background-color: white; width:540px;height:310px; margin-left:50%; margin-top:10%;">
+            <div class="first" style="width:540px; margin-left:20%; margin-bottom:0%;">
+                <div class="sign-up active" id="sign-up-button">
+                    <a href="{% url 'signin' %}" class="sign-up-header" style="font-size: 60px; color: black;">Sign Up</a>
+                </div>
+            </div>
+            <section class="logo-section" style="margin-left:29%;">
+                <img class="logo" src="https://seeklogo.com/images/I/instagram-new-2016-glyph-logo-84CB825424-seeklogo.com.png" />
+
+                <a href="{% url 'start' %}">
+                    <img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"
+                    />
+                </a>
+            </section>
+            <div class="second" style="width:540px; margin-top:0%; margin-right:50%;">
+                <div class="log-in" id="log-in-button">
+                    <a href="{% url 'login' %}" class="log-in-header" style="font-size: 60px; color: black;">Log In</a>
+                </div>
+            </div>
+
+
+        </div>
 
 </body>
 
 <style>
     .wrapper {
-        background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcNBwcNDQcHBw0HBg0HBwgHBw8ICQgNFREWFiAREx8YHCggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0NFQ8NFSsZFRkrKy03NysrKysrKysrKysrKy0tKysrKysrNysrKysrKysrKysrNysrKysrKys3KystN//AABEIAKgBLAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EABUQAQEAAAAAAAAAAAAAAAAAAAAR/8QAGgEBAQADAQEAAAAAAAAAAAAAAwIBBgcABP/EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAwDAQACEQMRAD8A8CKNmS+4bKiISQbQioSUaqyo0kG0Io0lGqsqNJRqqA0kG0Io0kGKgmsagJSsYAlKhqIqaxgCUqGAISsaI0g0rGyjSCSQbIqCSsaI0g0kGyKQSVjZAdAS52MRRKSDZURCSDaEVCSjVWVGkg2hFGko1VlRpINVQGko2hFGkgxUE1jUBKVjAEpUNRFTWMASlQwBCVjRGkGlY2UaQSSDZFQSVjQVBpINlFG/Jc6GgCEkGIolJBsqIhJBtCCElG0rKjSQbQijSUaqyo0kGqoDSUbQijSQYqCaxqAlKxgCUqGoiprGAJSoYAhKxojSDSsbKNIJJBsjSDSsbCKN7S5yNEUSko0AQkgxFEpINlREpINVQGko2lZUaSDaEUaSjVWVGkg1VAaSjaEUaSDFQTWNQEpWMASlQ1EVNYwBKVDAEJWNEaQaVjZFQSSDcwG8pc4GIolJBoiiUlGgCEkGIolJBsqIlJBqqA0lG0rKjSQbQijSUaqyo0kGqoDSUbQijSQYqCaxqAlKxgCUqGoiprGAJSoYAhKxojSDSsbkijdrnI0ASlYxFEpINEUSko0AQkgxFEpINlREpINVQGko2lZUaSDaEUaSjVWVGkg1VAaSjaEUaSDFQTWNQEpWMASlQ1EVNYwBKVDAEJWNxAbnc5GIoxWNAEpWMRRKSDRFEpKNAEJIMRRKSDZURKSDVUBpKNpWVGkg2hFGko1VlRpINVQGko2hFGkgxUE1jUBKVjAEpUNRFTWMBU5UNwAbhc6GAPVDEUYrGgCUrGIolJBoiiUlGgCEkGIolJBsqIlJBqqA0lG0rKjSQbQijSUaqyo0kGqoDSUbQijSQYqCaxqAlKxgCUqGoiprG4gNvudDAGKhgD1QxFGKxoAlKxiKJSQaIolJRoAhJBiKJSQbKiJSQaqgNJRtKyo0kG0Io0lGoijSQaqyo0lG0Io0kGKgmsagJSsYAnKhuQDbrnYwBioYA9UMAYqGIoxWNAEpWMRRKSDRFEpKNAEJIMRRKSDZURKSDVUBpKNpWVGkg2hFGko1EUaSDVWVGko2hFGkgxUE1jUBNY3NAbbc7IAxUQBiogDFRAHqyIoxUUASyERRLINEBDIMASyDEBLIUUEMoxQQyDVQEko1AGyFVQGko1UBpINQBspFBiq//9k=');
+        background-image: url('https://simpleisbetterthancomplex.com/media/2017/02/featured-signup.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         height: 655px;
     }
 
-    .split {
+    .logo {
+        width: 70px;
+    }
+
+    .logoname {
+        width: 220px;
+    }
+
+    .sign-up {
         width: 50%;
+        height: 70px;
+        border: solid 2px #9e2021;
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 50px;
     }
 
-    .left {
-        margin-left: 30px;
+    .sign-up:hover,
+    .log-in:hover {
+        font-weight: bold;
+        cursor: pointer;
     }
 
-    .right {
-        margin-right: 30px;
+    /* .sign-up-header {
+        margin-top: 23px;
+    } */
+
+    .log-in {
+        width: 50%;
+        height: 70px;
+        border: solid 2px #9e2021;
+        margin-left: 150px;
+        background-color: #9e2021;
+        text-align: center;
+    }
+
+    .log-in-header {
+        margin-top: 23px;
+        text-align: center;
+    }
+
+    .active {
+        background-color: #9e2021;
+        color: #fff;
     }
 </style>
+
 </html>

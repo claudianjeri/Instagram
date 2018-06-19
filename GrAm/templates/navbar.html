@@ -2,27 +2,76 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'css/nav.css' %}"> {% if user.is_authenticated %}
 <nav class="navbar fixed-top">
-    <section class="logo-section" style="height:20%">
+    <section class="logo-section">
         <img class="logo" src="https://seeklogo.com/images/I/instagram-new-2016-glyph-logo-84CB825424-seeklogo.com.png" />
-        <div></div>
+
         <a href="{% url 'home' %}">
             <img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"
             />
         </a>
     </section>
     <section class="icons-section">
-        <a href="/">
+        <!-- <a href="/">
             <i style="color:black;" class="fa fa-align-justify fa-2x"></i>
         </a>
-        <a href="{% url 'upload ' %}">
+        <a href="">
             <i style="color:black;" class="fa fa-pencil-alt fa-2x"></i>
         </a>
-        <a href="{% url ' profile ' %}">
+        <a href="">
             <i style="color:black;" class="fa fa-user fa-2x"></i>
-        </a>
-        
+        </a> -->
+
     </section>
 </nav>
 {% endif %}
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<style>
+    .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 2px solid #ddd;
+        background: white;
+    }
+
+    .navbar .logo-section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .navbar .logo-section div {
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        width: 1px;
+        background: black;
+        margin: 0 20px;
+    }
+
+    .navbar .icons-section .fa {
+        text-decoration: none;
+        font-size: 100%;
+        margin: 0 10px;
+        padding-left: 10px;
+    }
+
+    .navbar .logo {
+        width: 25px;
+    }
+
+    .navbar .logoname {
+        width: 100px;
+    }
+</style>
