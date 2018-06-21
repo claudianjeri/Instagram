@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.http.response import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from .models import Image, Profile, Comment
 from .forms import EditProfileForm, UploadForm
@@ -19,7 +20,7 @@ def signin(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/accounts')
+            return redirect('/account')
 
     else:
         form = UserCreationForm()
@@ -29,8 +30,18 @@ def signin(request):
         return render(request, 'registration/registration_form.html', args) 
 
 def login(request):
+    print('hey')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/profile')
 
-    return render(request, 'registration/login.html')
+    else:
+        form = UserCreationForm()
+
+        args = {"form": form}
+    return render(request, 'registration/login.html', args)
 
 def profile(request):
     profile = Profile.get_profile()

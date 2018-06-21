@@ -8,7 +8,7 @@ urlpatterns=[
     url('^home/',views.home,name = 'home'),
     url('^signin/',views.signin,name = 'signin'),
     url('^login/',views.login,name = 'login'),
-    url('^/profile/',views.profile, name='profile'),
+    url('^profile/',views.profile, name='profile'),
     url(r'^update/',views.update,name='update'),
     url(r'^upload/',views.upload,name='upload'),
 ]
